@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FlemingCollege</title>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <script
+defer
+src="https://maps.googleapis.com/maps/api/js?key
+=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE&libraries=visualization&callback=initMap">
+</script>
+    <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 90%;
+        /* The height is 100% of the web page */
+        /* width: 100%; I commented this out because I maxed the height */
+        /* The width is the width of the web page */
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+    //   // Initialize and add the map
+    //   function initMap() {
+    //     // The location of Uluru
+    //     const FlemCol = { lat: 44.34106, lng: -78.74058 };
+    //     // The map, centered at Fleming College Frost Campus
+    //     const map = new google.maps.Map(document.getElementById("map"), {
+    //       zoom: 15,
+    //       center: FlemCol,
+    //     });
+    //     // The marker, positioned at Uluru
+    //     const marker = new google.maps.Marker({
+    //       position: FlemCol,
+    //       map: map,
+    //     });
+    //   }
+//     let map;
+
+// function initMap() {
+//   map = new google.maps.Map(document.getElementById("map"), {
+//     zoom: 2,
+//     center: new google.maps.LatLng(2.8, -187.3),
+//     mapTypeId: "terrain",
+//   });
+//   // Create a <script> tag and set the USGS URL as the source.
+//   const script = document.createElement("script");
+//   // This example uses a local copy of the GeoJSON stored at
+//   // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+//   script.src =
+//     "https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js";
+//   document.getElementsByTagName("head")[0].appendChild(script);
+// }
+
+// // Loop through the results array and place a marker for each
+// // set of coordinates.
+// const eqfeed_callback = function (results) {
+//   for (let i = 0; i < results.features.length; i++) {
+//     const coords = results.features[i].geometry.coordinates;
+//     const latLng = new google.maps.LatLng(coords[1], coords[0]);
+//     new google.maps.Marker({
+//       position: latLng,
+//       map: map,
+//     });
+//   }
+// };
+
+// let map;
+
+// function initMap() {
+//   map = new google.maps.Map(document.getElementById("map"), {
+//     zoom: 2,
+//     center: { lat: -33.865427, lng: 151.196123 },
+//     mapTypeId: "terrain",
+//   });
+//   // Create a <script> tag and set the USGS URL as the source.
+//   const script = document.createElement("script");
+//   // This example uses a local copy of the GeoJSON stored at
+//   // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+//   script.src =
+//     "https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js";
+//   document.getElementsByTagName("head")[0].appendChild(script);
+// //   map.data.setStyle((feature) => {
+// //     const magnitude = feature.getProperty("mag");
+// //     return {
+// //       icon: getCircle(magnitude),
+// //     };
+// //   });
+//     map.data.setStyle(function(feature) {
+//     var magnitude = feature.getProperty('mag');
+//     return {
+//       icon: getCircle(magnitude)
+//     };
+//   });
+// }
+
+// // function getCircle(magnitude) {
+// //   return {
+// //     path: google.maps.SymbolPath.CIRCLE,
+// //     fillColor: "red",
+// //     fillOpacity: 0.2,
+// //     scale: Math.pow(2, magnitude) / 2,
+// //     strokeColor: "white",
+// //     strokeWeight: 0.5,
+// //   };
+// // }
+
+// function getCircle(magnitude) {
+//       var circle = {
+//         path: google.maps.SymbolPath.CIRCLE,
+//         fillColor: "red",
+//         fillOpacity: 0.3,
+//         scale: Math.pow(2, magnitude) / 2,
+//         strokeColor: "green",
+//         strokeWeight: 0.5,
+//       };
+//       return circle;
+//     }
+
+// function eqfeed_callback(results) {
+//   map.data.addGeoJson(results);
+// }
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 2,
+    center: { lat: -33.865427, lng: 151.196123 },
+    mapTypeId: "terrain",
+  });
+  // Create a <script> tag and set the USGS URL as the source.
+  const script = document.createElement("script");
+  // This example uses a local copy of the GeoJSON stored at
+  // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+  script.src =
+    "https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js";
+  document.getElementsByTagName("head")[0].appendChild(script);
+}
+
+// function eqfeed_callback(results) {
+//   const heatmapData = [];
+
+//   for (let i = 0; i < results.features.length; i++) {
+//     const coords = results.features[i].geometry.coordinates;
+//     const latLng = new google.maps.LatLng(coords[1], coords[0]);
+//     heatmapData.push(latLng);
+//   }
+//   const heatmap = new google.maps.visualization.HeatmapLayer({
+//     data: heatmapData,
+//     dissipating: false,
+//     map: map,
+//   });
+// }
+
+// function eqfeed_callback(results) {
+//     var heatmapData = [];
+//     for (var i = 0; i < results.features.length; i++) {
+//       var coords = results.features[i].geometry.coordinates;
+//       var latLng = new google.maps.LatLng(coords[1], coords[0]);
+//       heatmapData.push(latLng);
+//     }
+//     var heatmap = new google.maps.visualization.HeatmapLayer({
+//       data: heatmapData,
+//       dissipating: false,
+//       map: map
+//     });
+//   }
+
+  function eqfeed_callback(results) {
+    var heatmapData = [];
+    for (var i = 0; i < results.features.length; i++) {
+      var coords = results.features[i].geometry.coordinates;
+      var latLng = new google.maps.LatLng(coords[1], coords[0]);
+      var magnitude = results.features[i].properties.mag;
+      var weightedLoc = {
+        location: latLng,
+        weight: Math.pow(2, magnitude)
+      };
+      heatmapData.push(weightedLoc);
+    }
+    var heatmap = new google.maps.visualization.HeatmapLayer({
+      data: heatmapData,
+      dissipating: false,
+      map: map
+    });
+  }
+
+
+    </script>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+  </body>
+</html>

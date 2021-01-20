@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Add Map</title>
+    <title>FlemingCollege</title>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE&callback=initMap&libraries=&v=weekly"
       defer
     ></script>
     <style type="text/css">
       /* Set the size of the div element that contains the map */
       #map {
-        height: 400px;
-        /* The height is 400 pixels */
-        width: 100%;
+        height: 90%;
+        /* The height is 100% of the web page */
+        /* width: 100%; I commented this out because I maxed the height */
         /* The width is the width of the web page */
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
       }
     </style>
     <script>
       // Initialize and add the map
       function initMap() {
         // The location of Uluru
-        const uluru = { lat: -25.344, lng: 131.036 };
-        // The map, centered at Uluru
+        const FlemCol = { lat: 44.34106, lng: -78.74058 };
+        // The map, centered at Fleming College Frost Campus
         const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: uluru,
+          zoom: 15,
+          center: FlemCol,
         });
         // The marker, positioned at Uluru
         const marker = new google.maps.Marker({
-          position: uluru,
+          position: FlemCol,
           map: map,
         });
       }
