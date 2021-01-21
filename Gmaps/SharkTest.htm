@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CapeTownSharkSpotters</title>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
+    <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 90%;
+        /* The height is 100% of the web page */
+        /* width: 100%; I commented this out because I maxed the height */
+        /* The width is the width of the web page */
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      // Initialize and add the map
+    //   function initMap() {
+    //     // The location of Uluru
+    //     const FlemCol = { lat: 44.34106, lng: -78.74058 };
+    //     // The map, centered at Fleming College Frost Campus
+    //     const map = new google.maps.Map(document.getElementById("map"), {
+    //       zoom: 15,
+    //       center: FlemCol,
+    //     });
+    //     // The marker, positioned at Uluru
+    //     const marker = new google.maps.Marker({
+    //       position: FlemCol,
+    //       map: map,
+    //     });
+    //   }
+    function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 3,
+    center: { lat: -28.024, lng: 140.887 },
+  });
+  // Create an array of alphabetical characters used to label the markers.
+  const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  // Add some markers to the map.
+  // Note: The code uses the JavaScript Array.prototype.map() method to
+  // create an array of markers based on a given "locations" array.
+  // The map() method here has nothing to do with the Google Maps API.
+  const markers = locations.map((location, i) => {
+    return new google.maps.Marker({
+      position: location,
+      label: labels[i % labels.length],
+    });
+  });
+//   // Add a marker clusterer to manage the markers.
+//   new MarkerClusterer(map, markers, {
+//     imagePath:
+//       "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+//   });
+var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'markers/m'});
+}
+
+const locations = [
+//   { lat: -31.56391, lng: 147.154312 },
+//   { lat: -33.718234, lng: 150.363181 },
+//   { lat: -33.727111, lng: 150.371124 },
+//   { lat: -33.848588, lng: 151.209834 },
+//   { lat: -33.851702, lng: 151.216968 },
+//   { lat: -34.671264, lng: 150.863657 },
+//   { lat: -35.304724, lng: 148.662905 },
+//   { lat: -36.817685, lng: 175.699196 },
+//   { lat: -36.828611, lng: 175.790222 },
+//   { lat: -37.75, lng: 145.116667 },
+//   { lat: -37.759859, lng: 145.128708 },
+//   { lat: -37.765015, lng: 145.133858 },
+//   { lat: -37.770104, lng: 145.143299 },
+//   { lat: -37.7737, lng: 145.145187 },
+//   { lat: -37.774785, lng: 145.137978 },
+//   { lat: -37.819616, lng: 144.968119 },
+//   { lat: -38.330766, lng: 144.695692 },
+//   { lat: -39.927193, lng: 175.053218 },
+//   { lat: -41.330162, lng: 174.865694 },
+//   { lat: -42.734358, lng: 147.439506 },
+//   { lat: -42.734358, lng: 147.501315 },
+//   { lat: -42.735258, lng: 147.438 },
+//   { lat: -43.999792, lng: 170.463352 },
+
+{ lat: -34.231324,	lng: 18.822123 },
+{ lat: -34.220159,	lng: 18.798187 },
+{ lat: -34.205595,	lng: 18.802689},
+{ lat: -34.243806,	lng: 18.811838},
+{ lat: -34.233815,	lng: 18.813031},
+{ lat:  -34.217291,	lng: 18.810774},
+{ lat:  -34.225319,	lng: 18.814064},
+{ lat:  -34.230049,	lng: 18.80862},
+{ lat:  -34.238316,	lng: 18.818613},
+{ lat:  -34.134553,	lng: 18.44237},
+{ lat:  -34.137128,	lng: 18.440732},
+{ lat:  -34.136341,	lng: 18.442617},
+{ lat:  -34.135271,	lng: 18.440372},
+{ lat:  -34.135275,	lng: 18.443988},
+{ lat:  -34.136074,	lng: 18.441542},
+{ lat:  -34.137475,	lng: 18.439842},
+{ lat:  -34.136337,	lng: 18.439836},
+{ lat:  -34.134106,	lng: 18.441464},
+{ lat:  -34.135363,	lng: 18.442179},
+{ lat:  -34.13643,	lng: 18.443871},
+{ lat:  -34.136603,	lng: 18.441091},
+{ lat:  -34.142837,	lng: 18.4364},
+{ lat:  -34.142064,	lng: 18.436231},
+{ lat:  -34.142837,	lng: 18.436477},
+{ lat:  -34.141186,	lng: 18.434765},
+{ lat:  -34.141853,	lng: 18.435394},
+{ lat:  -34.141491,	lng: 18.43594},
+{ lat:  -34.140957,	lng: 18.435154},
+{ lat:  -34.14216,	lng: 18.435015},
+{ lat:  -34.140261,	lng: 18.434477},
+{ lat:  -34.140169,	lng: 18.435228},
+{ lat:  -34.142542,	lng: 18.435645},
+{ lat:  -34.142502,	lng: 18.435695},
+{ lat:  -34.162386,	lng: 18.433378},
+{ lat:  -34.162453,	lng: 18.431194},
+{ lat:  -34.162837,	lng: 18.433588},
+{ lat:  -34.163254,	lng: 18.433466},
+{ lat:  -34.162749,	lng: 18.433335},
+{ lat:  -34.163153,	lng: 18.433682},
+{ lat:  -34.099372,	lng: 18.351227},
+{ lat:  -34.087307,	lng: 18.749425},
+{ lat:  -34.11006,	lng: 18.478507},
+{ lat:  -34.111588,	lng: 18.476597},
+{ lat:  -34.107951,	lng: 18.483675},
+{ lat:  -34.108901,	lng: 18.479867},
+{ lat:  -34.11056,  lng: 18.478507},
+{ lat:  -34.111232,	lng: 18.473916},
+{ lat:  -34.111588,	lng: 18.476557},
+{ lat:  -34.109075,	lng: 18.482364},
+{ lat:  -34.10715,	lng: 18.486427},
+{ lat:  -34.112657,	lng: 18.475031},
+{ lat:  -34.108036,	lng: 18.48143},
+{ lat:  -34.111861,	lng: 18.478241},
+{ lat:  -34.110074,	lng: 18.48037},
+{ lat:  -34.107377,	lng: 18.487552},
+{ lat:  -34.112879,	lng: 18.473233},
+{ lat:  -34.109952,	lng: 18.481327},
+{ lat:  -34.106047,	lng: 18.488553},
+{ lat:  -34.106328,	lng: 18.489565},
+{ lat:  -34.108651,	lng: 18.485203},
+{ lat:  -34.107419,	lng: 18.484786},
+{ lat:  -34.122061,	lng: 18.459312},
+{ lat:  -34.122771,	lng: 18.458936},
+{ lat:  -34.121383,	lng: 18.460803},
+{ lat:  -34.122546,	lng: 18.459996},
+{ lat:  -34.120264,	lng: 18.462019},
+{ lat:  -34.120002,	lng: 18.46327},
+{ lat:  -34.120436,	lng: 18.460916},
+{ lat:  -34.101797,	lng: 18.350966},
+
+
+];
+    </script>
+  </head>
+  <body>
+    <h3>CapeTownSharkSpotters</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+  </body>
+</html>
