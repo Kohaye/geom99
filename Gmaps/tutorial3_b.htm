@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CapeTownSharkSpotters</title>
+    <title>FlemingCollege</title>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYanvaJ2Jr67-1t_Z6lhi58L0mvOrKLaI&callback=initMap&libraries=&v=weekly"
       defer
     ></script>
-    <!-- <script
+    <script
 defer
 src="https://maps.googleapis.com/maps/api/js?key
 =AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE&libraries=visualization&callback=initMap">
-</script> -->
+</script>
     <style type="text/css">
-      /* /* Set the size of the div element that contains the map */
-      /* #map {
+      /* Set the size of the div element that contains the map */
+      #map {
         height: 90%;
-        Width: 45%;  */
         /* The height is 100% of the web page */
         /* width: 100%; I commented this out because I maxed the height */
         /* The width is the width of the web page */
-      /* } */
+      }
       html,
       body {
         height: 100%;
@@ -28,8 +27,7 @@ src="https://maps.googleapis.com/maps/api/js?key
       }
     </style>
     <script>
-
-let map;
+        let map;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -44,34 +42,33 @@ function initMap() {
   script.src =
     "https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js";
   document.getElementsByTagName("head")[0].appendChild(script);
+  map.data.setStyle((feature) => {
+    const magnitude = feature.getProperty("mag");
+    return {
+      icon: getCircle(magnitude),
+    };
+  });
 }
 
-  function eqfeed_callback(results) {
-    var heatmapData = [];
-    for (var i = 0; i < results.features.length; i++) {
-      var coords = results.features[i].geometry.coordinates;
-      var latLng = new google.maps.LatLng(coords[1], coords[0]);
-      var magnitude = results.features[i].properties.mag;
-      var weightedLoc = {
-        location: latLng,
-        weight: Math.pow(2, magnitude)
-      };
-      heatmapData.push(weightedLoc);
-    }
-    var heatmap = new google.maps.visualization.HeatmapLayer({
-      data: heatmapData,
-      dissipating: false,
-      map: map
-    });
-  }
+function getCircle(magnitude) {
+  return {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: "red",
+    fillOpacity: 0.2,
+    scale: Math.pow(2, magnitude) / 2,
+    strokeColor: "white",
+    strokeWeight: 0.5,
+  };
+}
 
-
+function eqfeed_callback(results) {
+  map.data.addGeoJson(results);
+}
     </script>
   </head>
   <body>
-    <h3 style=text-align:center>SharkSpotter Beaches, Shark Sitings in False Bay, Cape Town, South Africa </h3>
+    <h3>My Google Maps Demo Tutorial 3b</h3>
     <li><a href="../index.htm">Home</a></li>
-    <iframe src="https://www.google.com/maps/d/embed?mid=1llPToxegFufUkKJPjEMamcSvuL8doE0L" width = "100%" height="100%"></iframe>
     <!--The div element for the map -->
     <div id="map"></div>
   </body>
