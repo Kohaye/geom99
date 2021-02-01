@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Korey's Canoe Trip</title>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYanvaJ2Jr67-1t_Z6lhi58L0mvOrKLaI&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <script
+defer
+src="https://maps.googleapis.com/maps/api/js?key
+=AIzaSyBYanvaJ2Jr67-1t_Z6lhi58L0mvOrKLaI&libraries=visualization&callback=initMap">
+</script>
+    <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 50%;
+        width: 50%;
+        /* The height and width is 50% of the web page */
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script> let map;
+    function initMap() {
+        map = google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: new google.maps.LatLng(45.157560, -78.886103),
+            mapTypeId: "satellite",
+        });
+    </script>
+</head>
+<body>
+    <h2>5-Day Trip for Trout</h2>
+    <div id="map"></div>
+</body>
