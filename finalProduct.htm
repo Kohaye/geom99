@@ -50,22 +50,244 @@ src="https://maps.googleapis.com/maps/api/js?key
         //       camp: {icon: "markers/camp.png", },
         //       launch: {icon: "markers/camp.png", },
         //   };
+          // image credits: https://www.takemefishing.org/fish-species/lake-trout/
           const trout = "markers/laketrout.png";
+          // image credits: https://pixabay.com/vectors/canoe-portage-man-walking-boat-158750/
           const portage = "markers/portage.png";
+          // image credits: https://thenounproject.com/term/camp-fire/928667/
           const camp = "markers/camp.png";
+          // image credits: https://thenounproject.com/term/boat-launch/200/
+          const blaunch = "markers/blaunch.png";
           // The map, centered at Fleming College Frost Campus
           const map = new google.maps.Map(document.getElementById("map"), {
             zoom: 14,
             center: ThreeIsl,
             mapTypeId: "satellite",
           });
-          const marker = new google.maps.Marker ({
+          const troutmarkerContent = 
+          "<h1><b>!!MY FIRST TROUT!!</b></h1>" +
+          "<p>On my way back from Little Margaret Lake, after seeing the boat trolling as slow" +
+          " as their motor could possibly allow I finally understood what I was doing wrong. " +
+          "My Mistake was finally clear, which is actually a mistake I make in far more areas " +
+          " of my life than just fishing - <b> I needed to SLOW DOWN </b></p>" + 
+          "<p> Once I stopped trying as hard as I could to not fail, I succeeded. My First Trout!" +
+          " I was shaking with excitement. I quickly dispatched the fish because I knew I wanted " +
+          "to eat it and regrouped to try and catch another. Within ten minutes I was hooked up " +
+          "once again, reeling in my second Lake Trout to keep. I headed back to the Hunt Camp " +
+          " to cook my two fish over the fire and feast on nature as nature had feasted on me. </p>" +
+          "<p> After lunch, I head back out in the canoe to catch two more. These I released " +
+          "because I had my fill for the day and I wanted to make sure I knew there were fish to " +
+          "come back to. Those were the last trout I caught on the trip and I haven't caught a " +
+          "trout since.</p>" + 
+          "<p> I can't wait to return. I want to do the trip all over again now that I know where " +
+          "I went wrong in my tactics. It makes me yearn to learn about whether or not I can be " +
+          "successful on the lakes I had failed on. Another time. One Day. Hopefully sooner than " + 
+          "I believe it will happen. For now it will remain a dream. A dream I was able to turn into" +
+          " reality for a short time. </p>" +
+          "<p> <b>Absolutely</b> worth the entire trip. </p>";
+          const troutmarkerInfo = new google.maps.InfoWindow ({
+            content: troutmarkerContent,
+          })
+          const troutmarker = new google.maps.Marker ({
               position: FirstTrout,
               map: map,
               icon: trout,
-
+              title: "My First Trout",
+              label: "8",
           });
+          troutmarker.addListener("click", () => {
+            troutmarkerInfo.open(map, troutmarker);
+          });
+          const MDPortContent = 
+          "<h1>My First Portage</h1>" +
+          "<p> The first portage I have ever completed was quite rough. The soil was very " +
+          "saturated, so I'm glad I kept my water socks on instead of switching to my hiking " +
+          "shoes. However, if I wasn't stepping on soaked soil that didn't seem to want to let " +
+          "me have my foot back, I was stepping on jagged stones, rocks and boulders. This " +
+          "actually wasn't the hardest part of the portage, either. There was a downed tree that" +
+          " completely blocked the way and about 5m of the portage on the shorter distance to " + 
+          "get around the obstacle. It wasn't the hardest thing I've ever done, but it was " +
+          "definitely an eye opener for what I had in store for me. </p>" ;
+          const MDPortInfo = new google.maps.InfoWindow ({
+            content: MDPortContent,
+          });
+          const MDPort = new google.maps.Marker ({
+              position: MargDan,
+              map: map,
+              icon: portage,
+              title: "Margaret - Dan Portage",
+              label: "3",
+          });
+          MDPort.addListener("click", () => {
+            MDPortInfo.open(map, MDPort);
+          });
+          const DMPort = new google.maps.Marker ({
+              position: DanMarg,
+              map: map,
+              icon: portage,
+              title: "Dan - Margaret Portage",
+          });
+          const DMcPortContent = 
+          '<h1> Stroke of Luck </h1>' +
+          '<p> Fortunately, it was still early in the spring, and the sun had not dried ' +
+          'up the creek between Dan and McEwen Lakes. It was a small portage - roughly 100m ' +
+          '- but any time one can stay in their canoe instead of making an extra portage is ' +
+          'a blessing. <p>';
+          const DMcPortInfo = new google.maps.InfoWindow ({
+          content: DMcPortContent,
+          });
+          const DMcPort = new google.maps.Marker ({
+              position: DanMc,
+              map: map,
+              icon: portage,
+              title: "Dan - McEwen Portage",
+              label: "4",
+          });
+          DMcPort.addListener("click", () => {
+          DMcPortInfo.open(map, DMcPort);
+          });
+          const McDPort = new google.maps.Marker ({
+              position: McDan,
+              map: map,
+              icon: portage,
+              title: "McEwen - Dan Portage",
+          });
+          const McHPortContent =
+          '<h1>Almost to the Island</h1>' +
+          "<p>Not the longest portage, but definitely the hardest. It was on a boardwalk " +
+          "that had clearly not been maintained for a long time. The boards were rotting and " +
+          "falling apart as I walked over them. During my walk back for my second trip of gear," +
+          " I noticed a stash of new boards that have been brought over, but not placed. I took " +
+          "the extra time to bring some boards down to the worst spots to make my return journey" +
+          " in two days much easier. </p>";
+          const McHPortInfo = new google.maps.InfoWindow ({
+            content: McHPortContent,
+          })
+          const McHPort = new google.maps.Marker ({
+              position: McHorse,
+              map: map,
+              icon: portage,
+              title: "McEwen - Horse Portage",
+              label: "5",
+          });
+          McHPort.addListener("click", () => {
+          McHPortInfo.open(map, McHPort);
+          });
+
+          const HMcPort = new google.maps.Marker ({
+              position: HorseMc,
+              map: map,
+              icon: portage,
+              title: "Horse - McEwen Portage",
+          });
+          const MLPortContent =
+          '<h1>Trip to Little Margaret</h1>' +
+          "<p>On the fourth day, still no fish to be proud of, I decided I wanted to take a " +
+          "over to Little Margaret Lake to see what's there. It wasn't a long portage, nor " +
+          "was it a rough path. A logging road separated the portage into two halves. At the " +
+          "middle of the trail, on a tree, was a carved paddle with the writing: 'Take a Paddle" +
+          " - Leave a Paddle. You never know when you might be in trouble or when you may have " +
+          "the chance to help someone else.' It was a treat to see, and was the highlight of " +
+          "the trek over to Little Margaret. </p>" +
+          "<p> This is where the luck changed. After getting back to Margaret Lake, I noticed " +
+          "a boat making slow passes along the shore...</p>";
+          const MLPortInfo = new google.maps.InfoWindow ({
+            content: MLPortContent,
+          });
+          const MLPort = new google.maps.Marker ({
+              position: MargLil,
+              map: map,
+              icon: portage,
+              title: "Margaret - Little Margaret Portage",
+              label: "7",
+          });
+          MLPort.addListener("click", () => {
+          MLPortInfo.open(map, MLPort);
+          });
+
+          const LMPort = new google.maps.Marker ({
+              position: LilMarg,
+              map: map,
+              icon: portage,
+              title: "Little Margaret - Margaret Portage",
+          });
+          const campsiteContent = 
+          '<h1>The Island</h1>' +
+          "<p>After a long day, three portages, and what felt like hundreds of mosquito bites, " +
+          "I made it to the island, which would be my home for the next two nights. So far, " +
+          "I still had not caught any fish. I didn't know at the time but I was paddling much " +
+          "too quickly for a fish to be able to bite the lure I was trolling behind me. I'm " +
+          "still not sure what compelled me to paddle so quickly for fishing, but I was " +
+          "unsuccessful in my goal so far. </p>" +
+          "<p> For two days, I continued to fish improperly. I scouted the shoreline in search " +
+          "of fish in the shadows and only seemed to find perch the size of my lure, and bass " +
+          "which were out of season until three weeks later. Two days and two nights I spent " +
+          "in frustration with myself, but still enjoying my time more than I have ever have, " +
+          "being by myself. </p>" +
+          "<p> Day three and it's finally time to pack up and head back to the hunt camp. I " +
+          " caught nothing. Time to be feasted upon by millions of bloodthirsty vampires again " +
+          "but this time I'm being smarter by wearing full pants and sleeves, as well as my mesh " +
+          "bug shirt. I'll deal with being sweaty. I have unlimited water at my disposal. </p>";
+          const campsiteInfo = new google.maps.InfoWindow({
+            content: campsiteContent,
+          });
+          const campsite = new google.maps.Marker ({
+              position: Camp1,
+              map: map,
+              icon: camp,
+              title: "My Own Island to Camp On",
+              label: "6",
+          });
+          campsite.addListener("click", () => {
+          campsiteInfo.open(map, campsite);
+          });
+          const HCampContent =
+          '<h1>My Home Away from Home - The Hunt Camp</h1>' +
+          "<p>I've spent far too little time here, in my opinion." +
+          " Here is where I check in with the best people I've ever known in my life," +
+          "besides my own parents of course. I needed to check in to make sure they knew" +
+          "my game plan on where I was going to be, just in case anything bad happened." +
+          " Once everything was settled I carried on with my Journey. </p>" +
+          "<p>I returned on the Third day of my Journey to spend my remaining two nights.</p>";
+          const HCampInfo = new google.maps.InfoWindow({
+          content: HCampContent,
+          });
+          const HCamp = new google.maps.Marker ({
+              position: HuntCamp,
+              map: map,
+              icon: camp,
+              title: "Home Away From Home: The Hunt Camp",
+              label: "2",
+          });
+          HCamp.addListener("click", () => {
+          HCampInfo.open(map, HCamp);
+          });
+
+          const launchContent =
+          '<h1>The Journey Begins</h1>' +
+          "<p>Here is where I set out to start my 5-day journey for trout." +
+          "The mosquitoes were out in force, the sun was hot and I was ready." +
+          "I had everything prepared for many days, weeks even. I was finally back" +
+          "in my element, ready to take on mother nature to test my skills. First," +
+          "I had to paddle across the lake to get to the Hunt Camp - my home away" +
+          "from home - to visit my friends and check in before heading out. I had to" +
+          "hurry because rest was still far away....</p>";
+          const launchInfo = new google.maps.InfoWindow({
+          content: launchContent,
+          });
+          const launch = new google.maps.Marker ({
+            position: BoatLaunch,
+            map: map,
+            icon: blaunch,
+            title: "Canoe Launch",
+            label: "1",
+          });
+          launch.addListener("click", () => {
+          launchInfo.open(map, launch);
+  });
+          
         }
+        
       </script>
 </head>
 <body>
