@@ -94,7 +94,11 @@ src="https://maps.googleapis.com/maps/api/js?key
               map: map,
               icon: trout,
               title: "My First Trout",
-              label: "8",
+              label: {
+                text: "8",
+                fontSize: "24px",
+                fontWeight: "bold", 
+              }
           });
           troutmarker.addListener("click", () => {
             troutmarkerInfo.open(map, troutmarker);
@@ -117,7 +121,7 @@ src="https://maps.googleapis.com/maps/api/js?key
               map: map,
               icon: portage,
               title: "Margaret - Dan Portage",
-              label: "3",
+              label: { text: "3",  fontSize: "24px", fontWeight: "bold", }
           });
           MDPort.addListener("click", () => {
             MDPortInfo.open(map, MDPort);
@@ -142,7 +146,7 @@ src="https://maps.googleapis.com/maps/api/js?key
               map: map,
               icon: portage,
               title: "Dan - McEwen Portage",
-              label: "4",
+              label: { text: "4", fontSize: "24px", fontWeight: "bold", }
           });
           DMcPort.addListener("click", () => {
           DMcPortInfo.open(map, DMcPort);
@@ -169,7 +173,7 @@ src="https://maps.googleapis.com/maps/api/js?key
               map: map,
               icon: portage,
               title: "McEwen - Horse Portage",
-              label: "5",
+              label: { text: "5", fontSize: "24px", fontWeight: "bold", }
           });
           McHPort.addListener("click", () => {
           McHPortInfo.open(map, McHPort);
@@ -200,7 +204,7 @@ src="https://maps.googleapis.com/maps/api/js?key
               map: map,
               icon: portage,
               title: "Margaret - Little Margaret Portage",
-              label: "7",
+              label: {text: "7", fontSize: "24px", fontWeight: "bold", }
           });
           MLPort.addListener("click", () => {
           MLPortInfo.open(map, MLPort);
@@ -237,7 +241,7 @@ src="https://maps.googleapis.com/maps/api/js?key
               map: map,
               icon: camp,
               title: "My Own Island to Camp On",
-              label: "6",
+              label: {text: "6", fontSize: "24px", fontWeight: "bold", }
           });
           campsite.addListener("click", () => {
           campsiteInfo.open(map, campsite);
@@ -258,7 +262,7 @@ src="https://maps.googleapis.com/maps/api/js?key
               map: map,
               icon: camp,
               title: "Home Away From Home: The Hunt Camp",
-              label: "2",
+              label: {text: "2", fontSize: "24px", fontWeight: "bold", }
           });
           HCamp.addListener("click", () => {
           HCampInfo.open(map, HCamp);
@@ -281,7 +285,7 @@ src="https://maps.googleapis.com/maps/api/js?key
             map: map,
             icon: blaunch,
             title: "Canoe Launch",
-            label: "1",
+            label: {text:"1", fontSize: "24px", fontWeight: "bold", }
           });
           launch.addListener("click", () => {
           launchInfo.open(map, launch);
