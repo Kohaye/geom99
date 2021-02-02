@@ -6,18 +6,20 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYanvaJ2Jr67-1t_Z6lhi58L0mvOrKLaI&callback=initMap&libraries=&v=weekly"
       defer
     ></script>
-    <script
+    <!-- <script
 defer
 src="https://maps.googleapis.com/maps/api/js?key
 =AIzaSyBYanvaJ2Jr67-1t_Z6lhi58L0mvOrKLaI&libraries=visualization&callback=initMap">
-</script>
+</script> -->
     <style type="text/css">
       /* Set the size of the div element that contains the map */
       #map {
-        height: 50%;
-        width: 50%;
+        height: 70%;
+        width: 70%;
+        margin:auto;
         /* The height and width is 50% of the web page */
       }
+      .title {text-align:center;}
       html,
       body {
         height: 100%;
@@ -25,17 +27,42 @@ src="https://maps.googleapis.com/maps/api/js?key
         padding: 0;
       }
     </style>
-    <script> let map;
-    function initMap() {
-        map = google.maps.Map(document.getElementById("map"), {
-            zoom: 15,
-            center: new google.maps.LatLng(45.157560, -78.886103),
+    <script>
+        // Initialize and add the map
+        function initMap() {
+          // Centre of the Canoe Trip
+          const ThreeIsl = { lat: 45.157560, lng: -78.886103 };
+          const BoatLaunch = { lat: 45.139156, lng: -78.870872 };
+          const MargDan = { lat: 45.146747, lng: -78.876484 };
+          const DanMarg = { lat: 45.148977, lng: -78.874513 };
+          const DanMc = { lat: 45.153880, lng: -78.868708 };
+          const McDan = { lat: 45.154727, lng: -78.869287 };
+          const McHorse = { lat: 45.165823, lng: -78.881058 };
+          const HorseMc = { lat: 45.167427, lng: -78.880575 };
+          const Camp1 = { lat: 45.171909, lng: -78.883609 };
+          const HuntCamp = { lat: 45.148306, lng: -78.891049 };
+          const MargLil = { lat: 45.141199, lng: -78.886584 };
+          const LilMarg = { lat: 45.139890, lng: -78.888601 };
+          const FirstTrout = {lat: 45.144917, lng: -78.885377 };
+          const trout = "markers/laker.png";
+          const portage = "markers/portage.png";
+          const camp = "markers/camp.png";
+          // The map, centered at Fleming College Frost Campus
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: ThreeIsl,
             mapTypeId: "satellite",
-        });
-    </script>
+          });
+          const marker = new google.maps.Marker ({
+              position: FirstTrout,
+              map: map,
+              icon: trout,
+          })
+        }
+      </script>
 </head>
 <body>
-    <h2>5-Day Trip for Trout</h2>
+    <h2 class = "title">5-Day Trip for Trout</h2>
     <div id="map"></div>
 </body>
 </html>
