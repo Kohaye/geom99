@@ -44,7 +44,13 @@ src="https://maps.googleapis.com/maps/api/js?key
           const MargLil = { lat: 45.141199, lng: -78.886584 };
           const LilMarg = { lat: 45.139890, lng: -78.888601 };
           const FirstTrout = {lat: 45.144917, lng: -78.885377 };
-          const trout = "markers/laker.png";
+        //   const icons = {
+        //       trout: { icon: "C:\GEOM99\geom99\markers\laker.png", },
+        //       portage: {icon: "markers/portage.png", },
+        //       camp: {icon: "markers/camp.png", },
+        //       launch: {icon: "markers/camp.png", },
+        //   };
+          const trout = "markers/laketrout.png";
           const portage = "markers/portage.png";
           const camp = "markers/camp.png";
           // The map, centered at Fleming College Frost Campus
@@ -57,7 +63,8 @@ src="https://maps.googleapis.com/maps/api/js?key
               position: FirstTrout,
               map: map,
               icon: trout,
-          })
+
+          });
         }
       </script>
 </head>
